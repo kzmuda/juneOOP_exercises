@@ -1,24 +1,26 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace juneOOP_exercises
+﻿namespace juneOOP_exercises
 {
     internal class ProductWithPackage : Product
     {
-        public string PackageName;
-        public decimal PackagePrice;
+        private string packageName;
+        private decimal packagePrice;
+
+        public ProductWithPackage(string productName, decimal unitPrice, 
+            string packageName, decimal packagePrice) 
+            : base(productName, unitPrice)
+        {
+            this.packageName = packageName;
+            this.packagePrice = packagePrice;
+        }
 
         public override string ToString()
         {
-            return base.ToString() + $" Package: {PackageName}, Package price: {PackagePrice}";
+            return base.ToString() + $" Package: {packageName}, Package price: {packagePrice}";
         }
 
         public override decimal GetPrice()
         {
-            return base.GetPrice() + PackagePrice;
+            return base.GetPrice() + packagePrice;
         }
 
     }

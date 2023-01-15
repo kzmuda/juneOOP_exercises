@@ -2,17 +2,22 @@ namespace juneOOP_exercises;
 
 public class Product
 {
-    public string ProductName { get; set;}
-    public decimal UnitPrice { get; set; }
+    public string ProductName { get; }
+    protected decimal unitPrice;
 
+    public Product(string productName, decimal unitPrice)
+    {
+        this.ProductName = productName;
+        this.unitPrice = unitPrice;
+    }
 
     public override string ToString()
     {
-        return $"Product: {ProductName}, Unit price: {UnitPrice}";
+        return $"Product: {ProductName}, Unit price: {unitPrice}";
     }
 
     public virtual decimal GetPrice()
     {
-        return UnitPrice;
+        return unitPrice;
     }
 }
