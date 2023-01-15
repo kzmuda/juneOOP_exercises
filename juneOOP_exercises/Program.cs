@@ -19,16 +19,25 @@
             OrderItem line2 = new OrderItem();
             line2.Quantity = 2;
             line2.Item = flower;
+
             
-            
-            
-            
+            ProductWithPackage milk = new ProductWithPackage();
+            milk.ProductName = "Milk";
+            milk.UnitPrice = 12m;
+            milk.PackageName = "bottle";
+            milk.PackagePrice = 1m;
+            OrderItem line3 = new OrderItem();
+            line3.Quantity = 2;
+            line3.Item = milk;
+
             Receipt receipt = new Receipt(); //tu sie wywola konstuktor
             receipt.ReceiptLines.Add(line);
             receipt.ReceiptLines.Add(line2);
-            //line.PrintOrderLine();
-            receipt.PrintAllLines();
+            receipt.ReceiptLines.Add(line3);
+            //line.PrintOrderLine();            
+
+            Console.WriteLine(receipt);
         }
     }
-    
+
 }

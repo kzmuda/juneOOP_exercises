@@ -11,17 +11,32 @@ public class Receipt
         ReceiptLines = new List<OrderItem>();
     }
 
-    public void PrintAllLines()
+    public override string ToString()
+    {
+        string result = $"Receipt from {DateTime.Today}  " + Environment.NewLine;
+       
+        foreach (OrderItem item in ReceiptLines)
+        {
+            result += item.ToString();
+            result += Environment.NewLine;
+
+        }
+        return result + $"Total of receipt is {GetValueReceipt()}";
+    }
+
+
+   /* public void PrintAllLines()
     {
         Console.WriteLine($"Receipt from {DateTime.Today}  ");
         foreach (OrderItem item in ReceiptLines)
         {
-            item.PrintOrderLine();
-            
-            
+            item.
+
+
+
         }
         Console.WriteLine($"Total of receipt is {GetValueReceipt()}");
-    }
+    }*/
 
     public decimal GetValueReceipt()
 
